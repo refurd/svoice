@@ -85,7 +85,7 @@ def separate(args, model=None, local_out_dir=None):
     # Load model
     if not model:
         # model
-        pkg = torch.load(args.model_path)
+        pkg = torch.load(args.model_path, map_location=torch.device('cpu'))
         if 'model' in pkg:
             model = pkg['model']
         else:
